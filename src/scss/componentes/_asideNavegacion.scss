@@ -1,0 +1,87 @@
+
+// Navegacion en el sidebar
+
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+@use 'base/tipografia' as t;
+
+
+.navegaciones{
+
+    img{
+        width: 2rem;
+        margin-left: 1rem;
+    }
+
+    .menuDash{
+        color: c.$blanco;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        transition-property: backgroud-color;
+        transition-duration:  300ms;
+
+        &:hover{
+            background-color: darken( rgb(202, 148, 241), 20%);
+            border-radius: 0.5rem;
+        }
+
+        span{
+            padding-left: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .img_navega{
+            width: 1.8rem;
+        }
+    }
+
+    nav{
+
+        a{
+            color: c.$blanco;
+            display: block;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            transition-property: backgroud-color;
+            transition-duration:  300ms;
+            margin-left: 1.8rem;
+            text-align: left;
+            font-size: 1.2rem;
+
+            &:hover{
+                background-color: darken( rgb(202, 148, 241), 20%);
+                border-radius: 0.5rem;
+            }
+        }
+
+        .dark_mode_boton{
+            width: 2.5rem;
+        }
+
+    }
+    
+    .navega-1,
+    .navega-2,
+    .navega-3,
+    .navega-4,   
+    .navega-5,
+    .navega-6,
+    .navega-7 {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        transition: visibility .2s ease-in-out, opacity 0.5s linear, height 0.5s linear;
+        text-align: center;
+    }
+
+    .mostrar_navega{
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+}

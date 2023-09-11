@@ -1,0 +1,35 @@
+
+// Mixins
+
+@use 'variables' as v;
+@use 'colores' as c;
+@use 'tipografia' as t;
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+// Grid
+@mixin grid($columnas, $espaciado) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin tamañofuente($em, $vw){
+    font-size: calc($em + $vw);
+}
+

@@ -1,0 +1,410 @@
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+@use 'base/tipografia' as t;
+
+// PARTE VERMAS
+
+
+
+.partesCrear,
+.partesEditar,
+.partesVermas {
+
+    .Fecha {
+        .campo:nth-child(1) {
+            width: 20%;
+            label{
+                margin: 0 1rem 0 1rem;
+            }
+        }
+        .campo:nth-child(2) {
+            width: 20%;
+            label{
+                margin: 0 1rem 0 1rem;
+            }
+        }
+        .campo:nth-child(3) {
+            width: 55%;
+            label{
+                margin: 0 1rem 0 1rem;
+            }
+        }
+        .campo:nth-child(4){
+            width: 5%;
+            justify-content: center;
+            img{
+                width: 4rem;
+            }
+        }
+        
+        input{
+            width: 100%;
+        }
+
+        .campo{
+            input[type='date']{
+                padding: 1rem;
+            }
+        }
+    }
+
+    .Finca,
+    .Empleado {
+        .campo{
+            width: 95%;
+        }
+        .campo:last-child{
+            width: 5%;
+            justify-content: center;
+            img{
+                width: 4rem;
+            }
+        }
+    }
+
+
+// PARTE TABLA
+    .cabeceraTabla{
+        
+        .Cafila{
+            border-right: 2px solid white;
+        }
+
+        .CAnombreEmpleado,
+        .CAselectTrabajos, 
+        .CAselectMaquinas, 
+        .CAselectProductos{
+            width: 18%;
+            border-right: 2px solid white;
+
+        }
+
+        .CAcantTra, 
+        .CAcantMaq {
+            width: 7%;
+            border-right: 2px solid white;
+        }
+
+        .Cafila,
+        .CAnombreEmpleado,
+        .CAselectMaquinas,
+        .CAcantTra, 
+        .CAcantMaq  {
+            background-color: c.$light-green-50;
+        }
+
+
+      
+        .CAcantPro{
+            width: 9%;
+            border-right: 2px solid white;
+        }
+        .CAok,
+        .CAborrar{
+            width: 4%;
+        }
+
+        .CAselectTrabajos,
+        .CAcantTra,
+        .CAselectProductos,
+        .CAcantPro {
+            background-color: c.$green-100;
+        }
+
+    }
+
+  
+    ///////////////////////////
+    
+    #cuerpo{
+        tr{
+            background-color: transparent;
+            width: 100%;
+            text-align: center;
+            .nombre {
+                padding-left: 1rem;
+                text-align: start;
+            }
+        }
+
+        td{
+            padding: 0.8;
+        }
+
+        #indicefila{
+            background-color: c.$light-green-50;
+            border-radius: 0.5rem;
+        }
+
+        .horastrabajo, 
+        .horasmaquina, 
+        .cantidadproducto {
+            width: 100%;
+            border: 1px solid darken(c.$gris, 10%);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 1em;
+        }
+
+        .selecttrabajo,
+        .selectproducto,
+        .horastrabajo, 
+        .cantidadproducto {
+            background-color: c.$green-100;
+        }
+
+        select{
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+
+        .imgboton{
+            padding: 0.5rem;
+        }
+
+        .imgok,
+        .imgpapelera {
+            width: 5rem;
+        }
+    }
+}
+
+
+
+// LISTADO PRICIPAL PARTES DE TRABAJO
+.partesListado {
+
+    .contenedorDos{
+        width: 100%;
+        .conuno{
+            width: 18%;
+        }
+        .condos{
+            width: 40%;
+            text-align: center;
+        }
+        .contres{
+            width: 42%;
+            display: flex;
+
+            .campo:nth-child(1){
+                width: 45%;
+                justify-content: center;
+            }
+            .campo:nth-child(2){
+                width: 45%;
+            }
+            .campo:nth-child(3){
+                width: 10%;
+
+                input{
+                    padding: 0.4rem;
+                }
+            }
+
+
+            label{
+                width: 14rem;
+                font-size: 1.2rem;
+                justify-content: end;
+                margin-right: 0.5rem;
+            }
+
+            input[type='date']{
+                padding: 0.5rem;
+            }
+
+            input[type='image']{
+                width: 4rem;
+                margin: 0;
+                padding: 0.2rem;
+                margin-left: 0.5rem;
+            }
+        }
+
+    }
+
+    .contenedorTres{
+        display: flex;
+             
+        .campoUno {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 15%;
+        }
+
+        .campoDos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            width: 10%;
+            
+            .flecha {
+                padding: 0.5rem;
+                width: 4rem;
+            }
+        }
+
+        .campoTres{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            width: 10%;
+        }
+
+        .campoCuatro{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            width: 65%;
+        }
+
+        label{
+            margin: 0 1rem 0 1rem;
+            width: auto;
+        }
+        
+        input[type="submit"]{
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    .tablalistadopartes{
+
+        .cabeceraTabla{
+            .Tid{
+                width: 8rem;
+            }
+            .Tfecha{
+                width: 10rem;
+            }
+        }
+        
+        #cuerpo{
+            text-align: center;
+            
+            td:nth-child( n+3 ){
+                text-align: left;
+            }
+
+            tr{
+                height: 4rem;
+            }
+
+            .edicion{
+                width:8rem;
+        
+                a{
+                    display: flex;
+                    justify-content: center;
+
+                    img{
+                        width: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .paginacion{
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.partesVermas {
+    .nombre,
+    .maquinas,
+    .hmaquinas{
+        background-color: c.$light-green-50;
+    }
+
+    .trabajo,
+    .htrabajos,
+    .productos,
+    .cproductos {
+        background-color: c.$green-100;
+    }
+}
+
+
+// ZONA INFORMES
+
+.contenedorSeleccion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: c.$teal-100;
+
+    .partes, 
+    .gastos {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+}
+
+// Seccion partes
+
+    .contenedorSelectores {
+        display: block;
+        border: 1px solid darken(c.$gris, 10%);
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+
+        .contenedorPrimero,
+        .contenedorSegundo {
+            display: flex;
+            align-items: center;
+        }
+
+        .contenedorPrimero {
+
+            .fechainicio,
+            .fechafin {
+                width: 20%;
+                margin-right: 1rem;
+                input {
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+
+    .formPartes {
+
+        h4,
+        .contenedorSelectores {
+            margin: 0;
+            padding: 1rem;
+            background-color: c.$cyan-200;
+        }
+        .contenedorSelectores {
+            margin-bottom: 0.5rem;
+        }
+
+    }
+    .formGastos {
+
+        h4,
+        .contenedorSelectores {
+            margin: 0;
+            padding: 1rem;
+            background-color: c.$red-100;
+        }
+        .contenedorSelectores {
+            margin-bottom: 0.5rem;
+        }
+
+    }

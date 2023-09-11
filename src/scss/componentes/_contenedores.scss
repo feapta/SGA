@@ -1,0 +1,71 @@
+
+// Contenedores
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+@use 'base/tipografia' as t;
+
+
+
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenedorUno{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    border: 1px solid darken(c.$gris, 10%);
+    border-radius: 1rem;
+    
+    background-color: c.$cyan-50;
+    
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.contenedorDos{
+    display: flex;
+    align-items: center;
+
+    border: 1px solid darken(c.$gris, 10%);
+    border-radius: 1rem;
+    
+    background-color: c.$cyan-50;
+    
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.contenedorTres{
+    border: 1px solid darken(c.$gris, 10%);
+    border-radius: 1rem;
+    
+    background-color: c.$cyan-50;
+    
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.contenedorGlobal{
+    border: 1px solid darken(c.$gris, 10%);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.contenedorLogin{
+    width: 90%;
+    margin: 0 auto;
+
+    @include m.telefono{
+        width: 80%;
+    }
+
+    @include m.tablet{
+        width: 50%;
+    }
+}

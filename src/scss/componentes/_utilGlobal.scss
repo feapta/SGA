@@ -1,0 +1,91 @@
+
+// Acciones SCSS
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+
+
+.acciones{
+    margin-top: v.$separacion;
+    
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a{
+        color: c.$principal;
+        display: block;
+        margin-bottom: calc(v.$separacion / 2);
+        text-align: center;
+    }
+}
+
+
+.edicion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        border-radius: 1rem;
+        border: 1px solid darken(c.$gris, 10%);
+        
+        background-color: c.$light-green-50;
+
+        margin-right: .3rem;
+        img{
+            padding: 0.5rem;
+            width: 4.8rem;
+        }
+    } 
+    
+    input[type='image']{
+        padding: 0.5rem;
+        width: 5rem;
+    }
+}
+
+
+.mas{
+    text-align: center;
+    width: 7rem;
+    a{
+        display: block;
+        text-align: center;
+        
+        border-radius: 1rem;
+        border: 1px solid darken(c.$gris, 10%);
+        padding: 0.3rem;
+        
+        background-color: c.$light-green-50;
+
+        img{
+            width: 4rem;
+        }
+    }
+}
+
+
+
+.campos{
+    display: flex;
+    border: 1px solid darken(c.$gris, 10%);
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+}
+
+.campo{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0;
+    margin: 0.4rem 0 0.4rem 0; 
+}

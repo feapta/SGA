@@ -1,0 +1,82 @@
+
+@use 'variables' as v;
+@use 'colores' as c;
+@use 'tipografia' as t;
+@use 'mixins' as m;
+
+
+// Botones
+@mixin boton($bgColor, $colorTexto, $display) {
+    background-color: $bgColor;
+    display: $display;
+
+    color: $colorTexto;
+    font-weight: t.$bold;
+    font-size: 2rem;
+    text-align: center;
+    
+    margin: 0.2rem 0;
+    padding: 1rem 2rem;
+
+    border: none;
+
+    transition-property: background-color;
+    transition-duration: .3s;
+    
+    width: 100%;
+
+    @include m.tablet {
+        width: auto;
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}
+
+@mixin botonSGA($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    color: $colorTexto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: t.$bold;
+    font-size: 1.5rem;
+    text-align: center;
+    
+    margin: 0.2rem;
+    padding: 0.5rem;
+
+    border: none;
+    border-radius: 1rem;
+
+    transition-property: background-color;
+    transition-duration: .3s;
+
+    width: 20rem;
+    height: 3rem;
+
+    box-shadow: 4px 3px 14px 2px rgba(0, 1, 14, 0.24);
+
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+   
+}
+ 
+.botonCrear:active {
+    transform: scale(0.90);
+    box-shadow: 2px 2px 10px 1px rgba(0, 1, 14, 0.24);
+}
+ 
+.botonCerrar:active {
+    transform: scale(0.90);
+    box-shadow: 2px 2px 10px 1px rgba(0, 1, 14, 0.24);
+}
+.botonGuardar:active {
+    transform: scale(0.90);
+    box-shadow: 2px 2px 10px 1px rgba(0, 1, 14, 0.24);
+}

@@ -1,0 +1,1 @@
+function eventListener(){document.querySelector(".imagenmenu").addEventListener("click",navegacionResposive)}function navegacionResposive(){document.querySelector(".aside").classList.toggle("asideVisible")}document.addEventListener("DOMContentLoaded",(function(){eventListener()}));

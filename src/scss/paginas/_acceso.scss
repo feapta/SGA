@@ -1,0 +1,76 @@
+
+// Pagina acceso
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+@use 'base/tipografia' as t;
+
+
+.acceso{
+    .formulario{
+        padding: 1rem;
+
+        .campo{
+            display: block;
+            margin: 1rem 0 1rem 0;
+            justify-content: center;
+        
+            label{
+                width: 100%;
+                justify-content: center;
+            }
+
+            input {
+                width: 100%;
+                margin: 1rem 0 1rem 0;
+                padding: 1rem;
+            }
+
+            @include m.tablet{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                
+                label{
+                    width: 20%;
+                    justify-content: flex-start;
+                }
+
+                input {
+                    width: 80%;
+                    height: 5rem;
+                    margin: 0;
+                    padding: 1rem;
+                }
+            }
+        }
+ 
+        .mostrarPassword{      
+               position: relative;
+                width: 100%;
+
+            .Img{
+                position: absolute;
+                width: 4rem;
+                top: 1.5rem;
+                right: 1rem;
+                filter: opacity(20%);
+
+                @include m.tablet{
+                    top: -1.1rem
+                }
+            }
+        
+            .mostrarPass{
+                visibility: visible;
+            }
+            
+            .ocultarPass{
+                visibility: hidden;
+                display: none;
+            }
+        
+        }
+    }
+}

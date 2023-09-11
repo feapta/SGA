@@ -1,0 +1,66 @@
+
+// Botones
+
+@use 'base/variables' as v;
+@use 'base/botonesmixins' as b;
+@use 'base/colores' as c;
+@use 'base/mixins' as m;
+
+
+
+.boton_verde{
+    @include b.boton(c.$verde, c.$blanco, block);
+}
+
+.boton_rojo {
+    @include b.boton(c.$rojo, c.$blanco, inline-block);
+}
+
+.boton_light-green-400{
+    @include b.boton(c.$light-green-400, c.$blanco, inline-block);
+}
+
+.botonCrear{
+    @include b.botonSGA(c.$light-green-400, c.$blanco);
+}
+
+.botonCerrar{
+    @include b.botonSGA(c.$red-200, c.$blanco);
+}
+
+.botonGuardar{
+    @include b.botonSGA(c.$teal-600, c.$blanco);
+}
+
+.pulsacion{
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 1px rgba(0, 1, 14, 0.24);
+}
+
+.pulsacion:active {
+    transform: scale(0.90);
+    box-shadow: 2px 2px 8px 1px rgba(0, 1, 14, 0.24);
+}
+
+.pulsacion2{
+    cursor: pointer;
+}
+
+.pulsacion2:active {
+    transform: scale(0.80);
+}
+
+.botonOscuro{
+    background-color: bisque;
+}
+
+
+
+/*
+efectos para los botones
+.boton:active{
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    transform: translateY(4px);
+}
+*/
+

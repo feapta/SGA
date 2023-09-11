@@ -1,0 +1,256 @@
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+@use 'base/tipografia' as t;
+
+
+// TODOS LOS INDEX
+header{
+    grid-area: header;
+}
+
+// ASIDE
+aside{
+    grid-area: aside;
+
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    
+    transform: translateX(0rem);
+    transition: all .50s ease;
+    
+    background-color: c.$blue-grey;
+
+    width: 0rem;
+    //min-height: 71.5vh;
+    padding: 0;
+    margin: 0;
+
+    a{
+        display: flex;
+        align-items: center;
+        color: c.$blanco;
+
+        span{
+            margin-left: 0.1rem;
+        }
+
+    }
+
+    @include m.tablet{
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        width: 18rem;
+    }
+
+}
+
+// CONTENIDO PRINCIPAL
+article{
+    grid-area: main;
+
+    h4{
+        margin: 1rem;
+    }
+    .contenedorImagenMenu{
+        width: 5rem;
+        visibility: visible;
+        opacity: 1;
+        margin: 0.2rem 0.5rem;
+        
+        @include m.tablet{
+            visibility: none;
+            display: none;
+        }
+    }
+}
+
+// PAGINAS INDEX DE TODA LA ZONA APP
+// De app
+// De configuracion
+// De gestion
+.contenidoApp{
+    display: block;
+    margin-bottom: 2rem;
+
+    @include m.tablet{
+        display: flex;
+    }
+
+    .contenido{
+        display: block;
+        margin: 0;
+        padding: 0;
+    
+
+        .contenidoIndexApp{
+            display: block;
+
+            .gestion,
+            .configuracion {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .titulo_gestion,
+            .titulo_configuracion {
+                margin-top: 2rem;
+                font-size: 1.8rem;
+            }
+
+
+            .gestion,
+            .configuracion {
+                margin: 1rem 0 2rem 0;
+
+                .contenido_etiqueta{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    img {
+                        width: 5rem;
+                    }
+                }
+            }
+
+            .gestion{
+                .informe {
+                    background-color: c.$cyan-50;
+                }
+            }
+
+            // informe configuracion
+            .configuracion{
+                .informe {
+                    background-color: c.$blue-grey-50;
+                }
+            }
+
+            .informe{
+                border: 1px solid darken(c.$gris, 10);
+                border-radius: 1rem;
+                margin: 0 0 1rem 0;
+                text-align: center;
+
+                a{
+                    color: c.$blanco;
+                }
+
+                h4{
+
+                    font-size: 1.7rem;
+                }
+
+                p{
+                    font-size: 1.7rem;
+                }
+
+                @include m.tablet{
+                    margin: 0;
+                }
+                
+            }
+        }
+    }
+}
+
+footer{
+    grid-area: footer;
+}
+
+// MAQUETACION DE LOS DASHBOARD
+.content{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "aside"
+    "main"
+    "footer";
+
+    grid-template: 
+        "header header"
+        "aside main" auto
+        "footer footer";
+
+    grid-template-columns: 0rem auto;
+
+    @include m.tablet{
+        grid-template-columns: 20rem auto;
+    }
+
+    .asideVisible{
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        position: absolute;
+        width: 18rem;
+    }
+}
+
+// CONTENIDO PAGINA PRINCIPAL DE LA WEB
+.contenidoMaster {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    .imagenInicio{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        img{
+            height: 30rem;
+        }
+
+        @include m.tablet{
+            img{
+                height: auto;
+            }
+        }
+    }
+
+    // CONTENIDO DE MASTER   
+    .inicio{
+        .sistemar,
+        .productos,
+        .informacion{
+            border: 1px solid darken(c.$gris, 10);
+            border-radius: 1rem;
+            margin: 2rem 0;
+            display: block;
+            text-align: center;
+
+            p{
+                text-align: justify;
+                padding: 1rem;
+            }
+
+            .informa{
+                display: block;
+        
+                @include m.tablet{
+                    display: flex;
+                    justify-content: center;
+        
+                    p{
+                        padding: 1rem;
+                    }
+                }
+            }
+        
+            img{
+                max-width: 40rem;
+                padding: 1rem;
+            }
+        }
+    }
+}
+
+
+
+
+

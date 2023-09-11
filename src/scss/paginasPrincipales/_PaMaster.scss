@@ -1,0 +1,146 @@
+
+
+// Pagina master
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+@use 'base/tipografia' as t;
+
+
+/// PRINCIPAL
+
+
+header{
+    background-color: rgb(33, 192, 192);
+    padding: 2rem 0 2rem 0;
+    margin: 0;
+    display: flex;
+    
+    @include m.tablet{
+        padding: 3rem;
+    }
+    
+    .vacio{
+        width: 0;
+
+        @include m.tablet{
+            width: 20rem;
+        }
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo{
+            border: 1px solid black;
+            border-radius: 1rem;
+            border: 2px solid darken(c.$gris, 10%);
+            padding: 1rem;
+        }
+
+        .enlaces{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+
+            a{
+                color: c.$blanco;
+                
+                font-weight: t.$bold;
+                font-size: 1.3rem;
+                text-transform: uppercase;
+
+                padding: 0.5rem;
+
+                transition-property: background-color;
+                transition-duration: 0.3s;
+
+                &:hover {
+                    background-color: darken( c.$principal, 10% );
+                    cursor: pointer;
+                }
+
+                @include m.tablet{
+                    font-size: 1.5rem;
+                    padding-left: 1rem;
+                }
+
+            }
+
+            @include m.tablet{
+                flex-direction: row;
+                margin: 0;
+                
+            }
+        }
+
+        .cerrarSesion{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 1rem;
+            border: 2px solid darken(c.$gris, 10%);
+            padding: 0.5rem;
+
+            h5{
+                color: c.$blanco;
+                font-size: 1.2rem;
+            }
+        }
+
+    }
+}
+
+
+
+footer{
+    display: block;
+    background-color: c.$principal;
+    height: 10rem;
+
+
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav{
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        
+        a{
+            text-transform: uppercase;
+            color: c.$blanco;
+            font-weight: t.$bold;
+            font-size: 1.1rem;
+
+            padding: 0.5rem;
+
+            @include m.tablet{
+                font-size: 1.5rem;
+            }
+        }
+
+        @include m.tablet{
+            text-align: left;
+        }
+    }
+
+    .cop{
+        p{
+            font-size: 1rem;
+            text-align: center;
+
+            @include m.tablet{
+                font-size: 1.3rem;
+                text-align: right;
+            }
+        }
+    }
+}

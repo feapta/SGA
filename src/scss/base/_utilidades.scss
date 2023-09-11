@@ -1,0 +1,69 @@
+// Utilidades
+
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'colores' as c;
+
+.centrado {
+    text-align: center;
+}
+
+.alinear_derecha{
+    display: flex;
+    justify-content: flex-end;
+}
+.alinear_izquierda{
+    display: flex;
+    justify-content: flex-start;
+}
+.w-100{
+    width: 100%;
+}
+
+
+// Mostrar/Ocultar secciones
+.mostrar{
+    display: block;
+    visibility: visible;
+}
+
+.ocultar{
+    display: none;
+    visibility: hidden;
+}
+
+
+// Somnbras
+.sombraCaja{
+    -webkit-box-shadow: 10px 10px 5px -6px rgba(158,156,158,1);
+    -moz-box-shadow: 10px 10px 5px -6px rgba(158,156,158,1);
+    box-shadow: 10px 10px 5px -6px rgba(158,156,158,1);
+}
+
+.grande{
+    width: 50rem;
+    padding: 1rem;
+}
+.peque{
+    width: 12rem;
+    border-radius: 35%;
+}
+
+.vermas{
+    box-shadow: 1px 1px 5px 1px rgba(0, 1, 14, 0.24);
+}
+.vermas:active {
+    transform: scale(0.90);
+    box-shadow: 1px 1px 4px 1px rgba(0, 1, 14, 0.24);
+}
+
+// .arriba{
+//     display: block;
+//     visibility: visible;
+//     padding: 0.5rem;
+//     width: 4rem;
+// }
+// .abajo{
+//     display: none;
+//     visibility: hidden;
+// }

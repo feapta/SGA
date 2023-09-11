@@ -1,0 +1,1 @@
+$(document).ready((function(){var e=$(window).height()/10-26.8;document.querySelector("aside").style.minHeight=e+"rem"}));

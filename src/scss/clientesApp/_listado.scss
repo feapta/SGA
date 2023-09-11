@@ -1,0 +1,115 @@
+
+
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'base/colores' as c;
+@use 'base/tipografia' as t;
+
+
+
+
+// Crear
+.clientesCrear,
+.clientesAppVermas{
+
+    .contenedorUno{
+       width: 100%;
+
+    }
+
+    .nombre{
+        width: 100%;
+    }
+    
+    .direccion {
+        .campo{
+            width: 80%;
+            
+            label{
+                width: 11rem;
+            }
+        }
+        .campo:last-child{
+            width: 20%;
+            
+            label{
+                justify-content: flex-end;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .provincia {
+        .campo{
+            width: 60%;
+            label{
+                width: 11.5rem;
+            }
+        }
+        .campo:last-child{
+            width: 40%;
+            
+            label{
+                justify-content: flex-end;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .email{
+        label{
+            width: 10.5rem;
+        }
+    }
+    .dni {
+        label{
+            width: 14rem;
+        }
+        .campo:nth-child(n + 2){
+            label{
+                justify-content: flex-end;
+                margin-right: 1rem;
+            }
+        }
+
+        
+    }
+
+    .ima{
+        label{
+            width: 10.5rem;
+        }
+    }
+
+    .notas{
+        label{
+            width: 10.5rem;
+        }
+    }
+       
+
+
+// Ver mas
+    .tablaFincas{
+        .Ids{          
+            width: 5%;
+            text-align: center;
+        }
+        .Imagenes{
+            width: 10%;
+            text-align: center;
+        }
+        .Nombre{
+            width: 70%;
+        }
+        .localizacion{
+            width: 10%;
+            text-align: center;
+
+        }
+        .hectareas{
+            width: 5%;
+            text-align: center;
+        }
+    }      
+}

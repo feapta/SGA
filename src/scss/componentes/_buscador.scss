@@ -1,0 +1,45 @@
+
+//Buscador
+
+@use 'base/variables' as v;
+@use 'base/botonesmixins' as b;
+@use 'base/colores' as c;
+@use 'base/mixins' as m;
+
+parte {
+    border:1px solid #ccc;
+    padding:10px;
+    font-size:1em;
+}
+
+parte tr:nth-child(even) {
+    background:#ccc; 
+}
+
+parte td {
+    padding:5px;
+}
+
+parte tr.noSearch { 
+    background:White;font-size:0.8em; 
+}
+
+parte tr.noSearch td { 
+    padding-top:10px;text-align:right; 
+}
+
+.hide { 
+    display:none; 
+}
+
+.red { 
+    background-color: red;
+    color: c.$blanco;
+    font-size: 1.5rem;
+}
+
+.alerta{
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+}

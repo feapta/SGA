@@ -1,0 +1,1 @@
+function imagen(){cambia()}function cambia(){const e=document.querySelector(".imagen");e.addEventListener("click",(function(){e.classList.contains("peque")?(e.classList.remove("peque"),e.classList.add("grande")):(e.classList.remove("grande"),e.classList.add("peque"))}))}document.addEventListener("DOMContentLoaded",(function(){imagen()}));

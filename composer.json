@@ -1,0 +1,25 @@
+{
+    "name": "feapt/sga-3",
+    "description": "Sistema de gestion agraria",
+    "type": "project",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    }, 
+    "authors": [
+        {
+            "name": "Felix Aparicio",
+            "email": "feapta@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.7",
+        "phpmailer/phpmailer": "^6.8",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
