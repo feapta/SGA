@@ -17,6 +17,6 @@
     <?php include __DIR__ . '/contenido.php'; ?>
 </div>
 
-<?php $script .= '<script src="/build/js/gestion/crear.js"></script>'; ?>
+<?php $script = '<script src="/build/js/gestion/crear.js"></script>'; ?>
 <?php $script .= '<script src="/build/js/gestion/contenidoComun.js"></script>'; ?>
 <?php $script .= '<script src="/build/js/gestion/contenido.js"></script>'; ?>

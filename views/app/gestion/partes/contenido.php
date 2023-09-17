@@ -1,8 +1,9 @@
   
   <!-- CONTENIDO COMUN DE CREAR Y EDITAR PARTE -->
   
-  <!-- Fecha --> <!-- Clientes -->
+  <!-- Autonumero, Fecha y Clientes --> 
     <div class="campos Fecha">
+        <!-- Autonumero -->
         <div class="campo">
             <label for="id">Id</label>
             <input type="text" id="autonumero" disabled>
@@ -72,4 +73,20 @@
               
             </tbody>
         </table>
+    </div>
+
+    <!-- totales -->
+    <div class="campos totales">
+        <div class="campo">
+            <label for="totalhorastrabajo">T. Ht</label>
+            <input type="text" id="totalhotastrabajo" name="partes[totalhorastrabajo]" class="totalhorastrabajo">
+        </div>
+        <div class="campo">
+            <label for="totalhorasmaquina">T. Hm</label>
+            <input type="text" id="totalhotasmaquina" name="partes[totalhorasmaquina]" class="totalhorasmaquina">
+        </div>
+        <div class="campo">
+            <label for="totalcantidadproducto">T. Cp</label>
+            <input type="text" id="totalcantidadproducto" name="partes[totalcantidadproducto]" class="totalcantidadproducto">
+        </div>
     </div>

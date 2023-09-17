@@ -1,5 +1,13 @@
 
-<?php $idclienteS = $_SESSION['id']; ?>
+<?php 
+    $idclienteS = $_SESSION['id']; 
+    $totalht = 0;
+    $totalhm = 0;
+    $totalcp = 0;
+    $T = 0;
+    $M = 0;
+    $P = 0;
+?>
 
 <!-- Parte completo -->
 
@@ -44,6 +52,7 @@
             <input type="text" id="idfinca" value="<?php echo s($partes[0]['finca']); ?>" disabled>
         </div>
 
+        <!-- Tabla -->
         <div class="campos">
             <table id="parte" class="tablas" >
                 <thead class="cabeceraTabla">
@@ -69,13 +78,37 @@
                             <td class="productos"><?php echo $trabajo['productos']; ?></td>
                             <td class="cproductos"><?php echo $trabajo['cantidadproductos']; ?></td>
                             
+                            <?php $totalht = (float)$parte['horastrabajo']; $T += $totalht; ?>
+                            <?php $totalhm = (float)$parte['horasmaquina']; $M += $totalhm; ?>
+                            <?php $totalcp = (float)$parte['cantpro']; $P += $totalcp; ?>
+
                         </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>
         </div>
+
+         <!-- totales -->
+         <div class="totales">
+            <div class="campo">
+                <label>Totales: </label>
+            </div>
+            <div class="campo">
+                <label for="totalhorastrabajo">T. Ht</label>
+                <input type="text"  value="<?php echo $T; ?>">
+            </div>
+            <div class="campo">
+                <label for="totalhorasmaquina">T. Hm</label>
+                <input type="text"  value="<?php echo $M; ?>">
+            </div>
+            <div class="campo">
+                <label for="totalcantidadproducto">T. Cp</label>
+                <input type="text" class="Tcantpro" value="<?php echo $P; ?>">
+            </div>
+        </div>
+
     </div>
 
-<?php $script .= '<script src="/build/js/gestion/eliminarParte.js"></script> '?>
+<?php $script = '<script src="/build/js/gestion/eliminarParte.js"></script> '?>
 
 

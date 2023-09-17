@@ -7,6 +7,7 @@ namespace Controllers;
 use Model\ActiveRecord;
 
 use Classes\Paginacion;
+use Model\ClientesApp;
 use Model\Fincas;
 use Model\Partes;
 use Model\PartesTrabajos;
@@ -14,14 +15,20 @@ use MVC\Router;
 
 class PartesControllers{
 
-    // partes LISTADO
+    // LISTADOS
     public static function listado(Router $router){
         session_start();
-        $idclienteS = $_GET['idclienteS'] ?? $_POST['partes']['idclienteS'];
+        $alertas = [];
+
+        // Variables que llegan para realizar las consultas
+        $idclienteS = $_GET['idclienteS'] ?? $_POST['partes']['idclientesistemar'];
         $fechainicio = $_POST['partes']['fechainicio'] ?? date('Y-m-01');
         $fechafin = $_POST['partes']['fechafin'] ?? date('Y-m-d');
+        $clienteapp = $_POST['partes']['clientesApp'] ?? null;
+        $finca = $_POST['partes']['fincas'] ?? null;
         $limite = $_POST['partes']['numeroRegistros'] ?? 10;
         $orden = $_POST['partes']['orden'] ?? 'DESC';
+        $clienteseleccionado =  null;
 
         // Paginacion
         $pagina_actual = $_GET['page'];
@@ -35,35 +42,62 @@ class PartesControllers{
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros, $idclienteS);
         $offset = $paginacion->offset();
 
-           
-        if($total_registros < 1){
 
-            $alertas = 'No hay registros para mostrar';
 
-        } else {
-            $consulta = " SELECT clientesapp.id AS idclienteapp, clientesapp.nombre AS nombre, clientesapp.apellidos AS apellidos, ";
+        // Consulta para llenar el select de clientes
+            $clapp = "SELECT id AS id, CONCAT (nombre, ' ', apellidos) AS nombre FROM clientesapp WHERE idclientesistemar = $idclienteS";
+            $clsapp = ActiveRecord::SQL_directa($clapp);
+
+        // Consulta para llenar el select de clientes
+        if($clienteapp){
+            $consultaclienteselect = "SELECT id AS id, CONCAT (nombre, ' ', apellidos) AS nombre FROM clientesapp WHERE id = $clienteapp";
+            $clienteseleccionado = ActiveRecord::SQL_directa( $consultaclienteselect );
+        }
+        
+
+        // Consulta principal para llenar la tabla
+            $consulta = "SELECT clientesapp.id AS idclienteapp, clientesapp.nombre AS nombre, clientesapp.apellidos AS apellidos, ";
             $consulta .= "fincas.nombre AS finca, ";
             $consulta .= "partes.autonumero AS autonumero, ";
-            $consulta .= "partes.id AS idparte, partes.fecha AS fecha, partes.creada AS fechaHecho FROM partes ";
+            $consulta .= "partes.fecha AS fecha, partes.id AS idparte, partes.horastrabajo, partes.horasmaquina, partes.cantpro ";
+            $consulta .= "FROM partes ";
             $consulta .= "LEFT JOIN clientesapp ON clientesapp.id = partes.idclienteapp ";
             $consulta .= "LEFT JOIN fincas ON fincas.id = partes.idfinca ";
             $consulta .= "WHERE partes.fecha >= '$fechainicio' AND partes.fecha <= '$fechafin' ";
             $consulta .= "AND partes.idclientesistemar = '$idclienteS' ";
-            $consulta .= "ORDER BY partes.autonumero $orden ";
+
+            if($clienteapp){
+                $consulta .= "AND partes.idclienteapp = $clienteapp ";
+            }
+            if($finca){
+                $consulta .= "AND partes.idfinca = $finca ";
+            }
+            
+            $consulta .= "ORDER BY autonumero $orden ";
             $consulta .= "LIMIT $registros_por_pagina ";
             $consulta .= "OFFSET $offset";
 
-            $nombrepartes =  ActiveRecord::SQL_directa($consulta);
+            $listadopartes =  ActiveRecord::SQL_directa($consulta);
+
+        // Si no hay registros marca una alerta
+        if($listadopartes < 1){
+            $alertas = 'No hay registros para mostrar';
         }
 
+        // Visualiza en la pagina
         $router->renderClientesGestion('partes/listado', [
-            'nombrepartes' => $nombrepartes,
+            'listadopartes' => $listadopartes,
             'fechainicio' => $fechainicio,
             'fechafin' => $fechafin,
             'limite' => $registros_por_pagina,
             'orden' => $orden,
             'paginacion' => $paginacion->paginacion(),
-            'cuenta' => $total_registros
+            'cuenta' => $total_registros,
+            'alertas' => $alertas,
+            'clientes' => $clsapp,
+            'clienteselect' => $clienteapp,
+            'clienteseleccionado' => $clienteseleccionado,
+            'fincaselect' => $finca
         ]);
     }
 
@@ -235,7 +269,7 @@ class PartesControllers{
                 for ($i = 0; $i < count($seccion); $i++){
                     $seccionPartes = new PartesTrabajos();
                         $seccionPartes->id = $seccion[$i]['id'] ? : NULL;
-                        $seccionPartes->idparte = $resultado['id'] ? : $seccion[$i]['idparte'];;
+                        $seccionPartes->idparte = $resultado['id'] ? : $seccion[$i]['idparte'];
                         $seccionPartes->indicefila = $seccion[$i]['indicefila'];
                         $seccionPartes->idempleado = $seccion[$i]['idempleado'];
                         $seccionPartes->idtrabajo = $seccion[$i]['idtrabajo'] ? : 'NULL';

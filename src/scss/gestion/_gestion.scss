@@ -114,9 +114,6 @@
         }
 
     }
-
-  
-    ///////////////////////////
     
     #cuerpo{
         tr{
@@ -171,6 +168,7 @@
     }
 }
 
+///////////////////////////
 
 
 // LISTADO PRICIPAL PARTES DE TRABAJO
@@ -179,51 +177,60 @@
     .contenedorDos{
         width: 100%;
         .conuno{
-            width: 18%;
+            width: 20%;
         }
         .condos{
-            width: 40%;
-            text-align: center;
+            width: 80%;
+            text-align: end;
         }
-        .contres{
-            width: 42%;
-            display: flex;
+    }
 
-            .campo:nth-child(1){
-                width: 45%;
-                justify-content: center;
-            }
-            .campo:nth-child(2){
-                width: 45%;
-            }
-            .campo:nth-child(3){
-                width: 10%;
+    .contenedorBusquedas {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        border: 1px solid darken(c.$gris, 10%);
+        border-radius: 1rem;
+        background-color: c.$cyan-50;
 
-                input{
-                    padding: 0.4rem;
+            .finicio,
+            .ffin {
+                width: 17%;
+                margin-left: 0.5rem;
+
+                label{
+                    width: 5rem;
+                    font-size: 1rem;
+                    text-align: center;
+                    margin-right: 0.5rem;
+                }
+
+                input[type='date']{
+                    padding: 1rem;
+                    width: 12rem;
+                }
+            }
+        
+            .client,
+            .finc {
+                width: 30%;
+
+                label{
+                    width: 6rem;
+                    font-size: 1rem;
+                    justify-content: end;
+                    margin-right: 0.5rem;
+                    margin-left: 0.5rem;
+                }
+                select{
+                    margin: 0;
                 }
             }
 
-
-            label{
-                width: 14rem;
-                font-size: 1.2rem;
-                justify-content: end;
-                margin-right: 0.5rem;
+            .boton {
+                width: 10%;
             }
-
-            input[type='date']{
-                padding: 0.5rem;
-            }
-
-            input[type='image']{
-                width: 4rem;
-                margin: 0;
-                padding: 0.2rem;
-                margin-left: 0.5rem;
-            }
-        }
-
     }
 
     .contenedorTres{
@@ -234,7 +241,7 @@
             justify-content: center;
             align-items: center;
 
-            width: 15%;
+            width: 18%;
         }
 
         .campoDos {
@@ -255,7 +262,7 @@
             justify-content: center;
             align-items: center;
             
-            width: 10%;
+            width: 15%;
         }
 
         .campoCuatro{
@@ -263,7 +270,7 @@
             justify-content: center;
             align-items: center;
             
-            width: 65%;
+            width: 60%;
         }
 
         label{
@@ -277,43 +284,31 @@
         }
     }
 
-    .tablalistadopartes{
-
-        .cabeceraTabla{
-            .Tid{
-                width: 8rem;
-            }
-            .Tfecha{
-                width: 10rem;
-            }
+    .cabeceraTabla{
+        .ver {
+            width: 5rem;
         }
-        
-        #cuerpo{
-            text-align: center;
-            
-            td:nth-child( n+3 ){
-                text-align: left;
-            }
+    }
 
-            tr{
-                height: 4rem;
-            }
+    #cuerpo{
+        .edit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            .edicion{
-                width:8rem;
-        
-                a{
-                    display: flex;
-                    justify-content: center;
-
-                    img{
-                        width: 2.5rem;
-                    }
+            a{
+                img{
+                    width: 3rem;
+                    padding: 0.2rem;
                 }
             }
         }
     }
 
+ 
+
+
+    
     .paginacion{
         margin-top: 0.5rem;
         display: flex;
@@ -322,6 +317,7 @@
     }
 }
 
+// Colores de columnas
 .partesVermas {
     .nombre,
     .maquinas,
@@ -338,73 +334,25 @@
 }
 
 
-// ZONA INFORMES
-
-.contenedorSeleccion {
+.totales{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: c.$teal-100;
+    justify-content: flex-end;
+    margin: 1rem 0 1rem 0;
 
-    .partes, 
-    .gastos {
-      display: block;
-      width: 100%;
-      text-align: center;
+    .campo:first-child {
+        justify-content: flex-end;
+        margin-right: 3rem;
+
+        label {
+            font-size: 1.6rem;
+            color: c.$blue-grey;
+        }
     }
+    .campo {
+        width: 15%;
+    }
+    label {
+        width: 6rem;
+    }
+
 }
-
-// Seccion partes
-
-    .contenedorSelectores {
-        display: block;
-        border: 1px solid darken(c.$gris, 10%);
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-        padding: 1rem;
-
-        .contenedorPrimero,
-        .contenedorSegundo {
-            display: flex;
-            align-items: center;
-        }
-
-        .contenedorPrimero {
-
-            .fechainicio,
-            .fechafin {
-                width: 20%;
-                margin-right: 1rem;
-                input {
-                    padding: 1rem;
-                }
-            }
-        }
-    }
-
-    .formPartes {
-
-        h4,
-        .contenedorSelectores {
-            margin: 0;
-            padding: 1rem;
-            background-color: c.$cyan-200;
-        }
-        .contenedorSelectores {
-            margin-bottom: 0.5rem;
-        }
-
-    }
-    .formGastos {
-
-        h4,
-        .contenedorSelectores {
-            margin: 0;
-            padding: 1rem;
-            background-color: c.$red-100;
-        }
-        .contenedorSelectores {
-            margin-bottom: 0.5rem;
-        }
-
-    }

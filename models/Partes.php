@@ -6,7 +6,7 @@ namespace Model;
 
 class Partes extends ActiveRecord {
     protected static $tabla = 'partes';
-    protected static $columnasDB = ['id', 'idclienteapp', 'idclientesistemar', 'autonumero', 'fecha', 'idfinca', 'creada'];
+    protected static $columnasDB = ['id', 'idclienteapp', 'idclientesistemar', 'autonumero', 'fecha', 'idfinca', 'horastrabajo', 'horasmaquina', 'cantpro', 'creada'];
 
     public $id;
     public $idclienteapp;
@@ -14,6 +14,9 @@ class Partes extends ActiveRecord {
     public $autonumero;
     public $fecha;
     public $idfinca;
+    public $horastrabajo;
+    public $horasmaquina;
+    public $cantpro;
     public $creada;
 
     public function __construct($args = []) {
@@ -23,6 +26,9 @@ class Partes extends ActiveRecord {
         $this->autonumero = $args['autonumero'] ?? null;
         $this->fecha = $args['fecha'] ?? null;
         $this->idfinca = $args['idfinca'] ?? null;
+        $this->horastrabajo = $args['horastrabajo'] ?? 0;
+        $this->horasmaquina = $args['horasmaquina'] ?? 0;
+        $this->cantpro = $args['cantpro'] ?? 0;
         $this->creada = date('Y/m/d');
     }
 

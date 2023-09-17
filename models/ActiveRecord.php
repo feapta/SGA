@@ -301,7 +301,7 @@ class ActiveRecord{
     }
     // Devulve un solo registro
     public static function SQL_directa($query) {
-        //debuguear($query);
+       // debug($query);
         $resultado = self::$db->query($query);
         while($registro = $resultado->fetch_assoc()) {
             $array[] = $registro;

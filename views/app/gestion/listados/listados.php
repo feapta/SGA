@@ -120,11 +120,7 @@
                 </tbody>
             </table>
 
-            <div class="paginacion">
-                <div class="campo">
-                    <?php echo $paginacion; ?>
-                </div>
-            </div>
+           
         </div>
         
 
@@ -212,7 +208,7 @@
 
             <div class="paginacion">
                 <div class="campo">
-                    <?php echo $paginacion; ?>
+                    <?php //echo $paginacion; ?>
                 </div>
             </div>
         
@@ -220,5 +216,5 @@
     </div>
 
 
-    <?php $script .= '<script src="/build/js/gestion/listados.js"></script>'; ?>
+    <?php $script = '<script src="/build/js/gestion/listados.js"></script>'; ?>
     <?php $script .= '<script src="/build/js/orden.js"></script>'; ?>

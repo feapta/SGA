@@ -6,6 +6,9 @@ var jsonrecibido = [];
 var idparte = document.querySelector('#idparte').value;
 var indicefila = -1;
 var arrayfilas = [];
+var totalhorastrabajo = 0;
+var totalhorasmaquina = 0;
+var totalcantpro = 0;
 
 const Objetotrabajo = {
     id: '',
@@ -254,6 +257,7 @@ function filaObjeto( em, tr, ma, pr){
         cantpro: ''
     }
 
+
     arraytrabajos = [...arraytrabajos, Objetotrabajo];
     
 
@@ -281,6 +285,19 @@ function modificarObjeto(e){
         idproducto: part.querySelector('.selectproducto').value,
         cantpro: part.querySelector('.cantidadproducto').value
     }
+
+const totalhorastr = arraytrabajos.reduce( (totaltr, arraytrabajos) => Number(totaltr) + Number(arraytrabajos.horastrabajo) , 0);
+const totalhorasma = arraytrabajos.reduce( (totalma, arraytrabajos) => Number(totalma) + Number(arraytrabajos.horasmaquina) , 0);
+const totalpr = arraytrabajos.reduce( (totalpr, arraytrabajos) => Number(totalpr) + Number(arraytrabajos.cantpro) , 0);
+
+console.log(totalhorastr);
+console.log(totalhorasma);
+console.log(totalpr);
+
+document.querySelector('.totalhorastrabajo').value = totalhorastr;
+document.querySelector('.totalhorasmaquina').value = totalhorasma;
+document.querySelector('.totalcantidadproducto').value = totalpr;
+
     botonActiva();
 }
 
@@ -323,6 +340,9 @@ async function guardarParte(){
     const fecha = document.querySelector('#fecha').value
     const idclienteapp = document.querySelector('#idclienteapp').value
     const idfinca = document.querySelector('#idfinca').value
+    const horastrab = document.querySelector('.totalhorastrabajo').value;
+    const horasmaqu = document.querySelector('.totalhorasmaquina').value;
+    const cantprodu = document.querySelector('.totalcantidadproducto').value;
 
     const datos = new FormData();
     if (idparte){
@@ -333,6 +353,9 @@ async function guardarParte(){
         datos.append('autonumero', autonumero);
         datos.append('fecha', fecha);
         datos.append('idfinca', idfinca);
+        datos.append('horastrabajo', horastrab);
+        datos.append('horasmaquina', horasmaqu);
+        datos.append('cantpro', cantprodu);
         datos.append('trabajos', JSON.stringify(arraytrabajos));
         
         try {

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', ordenIncio);
 
 function ordenIncio(){
     const imgflecha = document.querySelector('.flecha');
+   
     if (imgflecha.classList.contains('DESC')){
         imgflecha.src = "/build/img/flecha-abajo.png";
 

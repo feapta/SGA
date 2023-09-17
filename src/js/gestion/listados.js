@@ -4,41 +4,13 @@
 // LISTADOS DE GASTOS Y PARTES
 
 document.addEventListener('DOMContentLoaded', function(){
-    listadosApp();
-
     const selectClientes = document.querySelector('#clientes');
-        selectClientes.addEventListener('change', fincas);
+        selectClientes.addEventListener('change', function(){
+            fincas();
+        });
 });
 
-function listadosApp(){
-    const partes = document.querySelector('.partes');
-    const gastos = document.querySelector('.gastos');
-        partes.style.background = '#80deea';
-        document.querySelector('.partes h4').style.color = '#fff';
-    partes.addEventListener('click', cambioPartes);
-    gastos.addEventListener('click', cambioGastos);
-}
 
-function cambioPartes(){
-    const formuP = document.querySelector('.formPartes');
-    const formuG = document.querySelector('.formGastos');
-        formuG.classList.add('ocultar');
-        formuP.classList.remove('ocultar');
-
-        document.querySelector('.partes').style.background = '#80deea';
-        document.querySelector('.partes h4').style.color = '#fff';
-        document.querySelector('.gastos').style.background='transparent';
-}
-function cambioGastos(){
-    const formuP = document.querySelector('.formPartes');
-    const formuG = document.querySelector('.formGastos');
-        formuP.classList.add('ocultar');
-        formuG.classList.remove('ocultar');
-
-        document.querySelector('.gastos').style.background='#ffcdd2';
-        document.querySelector('.gastos h4').style.color = '#fff';
-        document.querySelector('.partes').style.background='transparent';
-}
 
 // Fincas
 async function fincas(){
@@ -78,3 +50,51 @@ function creafinca(fincasrecibidas){
     });
 
 }
+
+
+
+
+/*
+window.addEventListener("beforeunload", function (e) {
+        sessionStorage.clear(); 
+  });
+
+
+
+function listadosApp(){
+    const partes = document.querySelector('.partes');
+    const gastos = document.querySelector('.gastos');
+        partes.style.background = '#80deea';
+        document.querySelector('.partes h4').style.color = '#fff';
+    partes.addEventListener('click', cambioPartes);
+    gastos.addEventListener('click', cambioGastos);
+}
+function cambioPartes(){
+    const formuP = document.querySelector('.formPartes');
+    const formuG = document.querySelector('.formGastos');
+        formuG.classList.add('ocultar');
+        formuP.classList.remove('ocultar');
+
+        document.querySelector('.partes').style.background = '#80deea';
+        document.querySelector('.partes h4').style.color = '#fff';
+        document.querySelector('.gastos').style.background='transparent';
+}
+function cambioGastos(){
+    const formuP = document.querySelector('.formPartes');
+    const formuG = document.querySelector('.formGastos');
+        formuP.classList.add('ocultar');
+        formuG.classList.remove('ocultar');
+
+        document.querySelector('.gastos').style.background='#ffcdd2';
+        document.querySelector('.gastos h4').style.color = '#fff';
+        document.querySelector('.partes').style.background='transparent';
+}
+
+   window.addEventListener("beforeunload", function (e) {
+  var confirmationMessage = "\o/";
+
+  (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+  return confirmationMessage;                            //Webkit, Safari, Chrome
+});                       //Webkit, Safari, Chrome
+
+*/
